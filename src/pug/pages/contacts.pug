@@ -1,0 +1,33 @@
+doctype html
+html(lang="ru")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible" content="IE=edge")
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+        title SitDownPlsContacts
+        include mixin.pug
+        +baseHead
+    body.body
+        include mixin.pug
+        - var pageheader = 'contacts'
+        +header(pageheader)
+        main.contacts
+            .container
+                h1.hreset.contacts__title Контакты
+                .contacts__container
+                    form(action="#").contacts__form.flex
+                        .contacts__forminpcontainer
+                            label(for="searchShop" aria-label="Поиск магазина")
+                            input(type="text" id="searchShop" placeholder="Поиск магазина").contacts__inpsearch
+                            .contacts__selectcontainer
+                                p.preset(tabindex="0").contacts__select.contacts__select1 Москва, SitDownPls на Солянке&nbsp;
+                                    span.contacts__selectspan м. Китай-город, ул. Солянка, д.24
+                                p.preset(tabindex="0").contacts__select.contacts__select2 Москва, SitDownPls на Покровке&nbsp;
+                                    span.contacts__selectspan м. Курская, ул. Покровка, д.14
+                        input(type='submit', value='Поиск').contacts__btn.btn.btnViolet
+                    #map.contacts__map
+        include mixin.pug
+        +footer
+        +baseFooter
+        script(src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey=<ваш API-ключ>", type='text/javascript')        //-
+        script(defer src="app.js")

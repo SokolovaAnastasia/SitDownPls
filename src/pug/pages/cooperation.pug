@@ -1,0 +1,50 @@
+doctype html
+html(lang="ru")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible" content="IE=edge")
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+        title SitDownPlsCooperation
+        include mixin.pug
+        +baseHead
+    body.body
+        include mixin.pug
+        - var pageheader = 'cooperation'
+        +header(pageheader)
+        main.cooperation
+            section.cooperation__sectionone.container
+                h1.hreset.cooperation__title Сотрудничество
+                h2.hreset.cooperation__sectiononetitle.cooperation__subtitle Поставщикам
+                p.cooperation__sectiononetext.cooptext При планировании обстановки торгового помещения важно обустроить его с комфортом для покупателей: грамотно зонировать, обеспечить эффективную демонстрацию и хранение товаров в зале. Если вам необходимо комплексное оснащение, организация зоны отдыха или отдельные предметы меблировки для поддержания эффективной торговой деятельности, мы поможем выбрать продукцию с учетом нагрузки от поступающего трафика.
+            section.cooperation__sectiontwo.container
+                h2.hreset.cooperation__sectiontwosubtitle.cooperation__subtitle Что вы получаете?
+                ul.cooperation__sectiontwolist.listreset
+                    - var listCooperationSectiontwo = [{img:'../imgs/cooperation1.webp', text:'Мы ценим идеи и вдохновение и предлагаем сотрудничество талантливым дизайнерам и архитекторам. Выпускаемая нами продукция гармонично дополнит любой современный проект.'},{img:'../imgs/cooperation2.webp', text:'Комплексное решение для красивого и функционального обустройства любых пространств. '},{img:'../imgs/cooperation3.webp', text:'В ассортименте представлены все товарные группы для того, чтобы воссоздать обстановку в помещениях разных типов: кабинетах, смешанных пространствах, Open Space, гостевых и переговорных комнатах.'}]
+                        each list in listCooperationSectiontwo
+                            li.cooperation__sectiontwoitem.flex
+                                img.imgreset.cooperation__sectiontwoitemimg.lazy(data-src="" + list.img alt="иконка что вы получаете")
+                                p.cooperation__sectiontwotext.cooptext= list.text
+            section.cooperation__sectionthree.container
+                h2.hreset.cooperation__sectionthreesubtitle.cooperation__subtitle Ваши преимущества от сотрудничества
+                ul.cooperation__sectionthreelist.listreset
+                    - var listCooperationSectionthree = [{subtitle:'Возможность 1:', text:'Создавайте незабываемые впечатления. Красиво меблированная фотостудия не оставит клиентов равнодушными, а созданная интерьером атмосфера будет надолго запечатлена на их снимках. Стильная и разноплановая обстановка творческого пространства – ключевая составляющая его успешной деятельности. Позаботьтесь о людях в кадре, а мы поможем правильно выбрать мебель.'},{subtitle:'Возможность 2:', text:'Мы предлагаем застройщикам, работающим на территории РФ, участие наших специалистов от этапа проектирования обстановки квартир и подбора комплексных интерьерных решений до оптовых поставок мебели. Поможем организовать демонстрационный зал с образцами изделий и материалов на площади нового здания, чтобы покупатель заблаговременно подобрал тот вариант меблировки, который удовлетворит даже самые взыскательные ожидания.'}]
+                        each list in listCooperationSectionthree
+                            li.cooperation__sectionthreeitem
+                                h3.hreset.cooperation__sectionthreesubsubtitle= list.subtitle
+                                p.preset.cooperation__sectionthreetext.cooptext= list.text
+            section.cooperation__sectionfour.container
+                h2.hreset.cooperation__sectionfoursubtitle.cooperation__subtitle Гарантии
+                ul.cooperation__sectionfourlist.listreset
+                    - var listCooperationSectiontfour =[{namber:'1.', text:'При приемке товара Покупатель должен внимательно проверить его количество, качество и ассортимент на соответствие сопроводительным документам и заказу. После подписания товарного чека Покупатель утрачивает право предъявления претензий, которые можно выявить при приемке товара.'}, {namber:'2.', text:'На товары, сборка которых производилась покупателем самостоятельно (не специалистами Продавца), гарантийные обязательства Продавца не распространяются. Также гарантия не распространяется на повреждения товара, полученные в ходе самостоятельной доставки и подъема товара. Покупатель не вправе отказаться от товара надлежащего качества, имеющего индивидуально-определенные свойства, т.е. если товар может быть использован исключительно приобретающим его потребителем.'},{namber:'3.', text:'Возврат или обмен товара возможен при условии, что сохранена упаковка, товарный вид и потребительские свойства товара, а также товарный и кассовый чеки. В этом случае мы гарантируем вам возврат полной стоимости товара (за вычетом стоимости доставки). В случае отказа от товара при доставке, клиент оплачивает услуги доставки.'}]
+                        each list in listCooperationSectiontfour
+                            li.cooperation__sectionfouritem.flex
+                                p.preset.cooperation__sectionfournumber= list.namber
+                                p.preset.cooperation__sectionfourtext.cooptext= list.text
+            section.cooperation__sectionfive.container
+                .cooperation__sectionfivecontainer.flex
+                    img.imgreset.lazy.cooperation__sectionfiveimg(data-src="../imgs/cooperation4.webp", alt="изображение карандаша")
+                    p.preset.cooperation__sectionfivetext Срок гарантии на нашу мебель составляет от 18 до 60 месяцев
+        include mixin.pug
+        +footer
+        +baseFooter
+        script(defer src="app.js")

@@ -1,0 +1,128 @@
+doctype html
+html(lang="ru")
+  head
+    meta(charset="UTF-8")
+    meta(http-equiv="X-UA-Compatible" content="IE=edge")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    title SitDownPls
+    include mixin.pug
+    +baseHead
+  body.body
+    include mixin.pug
+    +header(pageheader)
+    main.main
+      section.sectionone
+        .swiper.mySwiper.sectionone__swiper
+          .swiper-wrapper
+            include mixin.pug
+            +sectionOneSlider
+          .swiper-pagination
+        button.sectionone__btn2.btn.btnViolet.none Получить!
+      section.container.sectiontwo
+        h1.hreset.sectiontwo__title.maintitle Специальные предложения
+        .btnscontain
+          include mixin.pug
+          +btns
+        .swiper.mySwiper2
+          .swiper-wrapper
+            - var listsSwiper = [{text:'- 9 000', texttitle:'Кресло велюровое “X-24”', img:'sectiontwo1.webp', price:'15 990 руб', pricebefore:'24 990 руб', class:'min one'}, {text:'- 10 000', texttitle:'Диван тканевый “Z-44”', img:'sectiontwo2.webp', price:'22 990 руб', pricebefore:'32 990 руб', class:'max two'}, {text:'- 600', texttitle:'Будильник  “Quartz-23”', img:'sectiontwo3.webp', price:'1 290 руб', pricebefore:'1 890 руб', class:'min three'}, {text:'- 300', texttitle:'Мини-скульптура “Oh my deer”', img:'sectiontwo4.webp', price:'690 руб', pricebefore:'990 руб', class:'min four'}, {text:'- 10 000', texttitle:'Диван вел-флок “Z-85”', img:'sectiontwo5.webp', price:'22 990 руб', pricebefore:'32 990 руб', class:'max five'}, {text:'- 700', texttitle:'Термометр + гидрометр “H-18”', img:'sectiontwo6.webp', price:'1 390 руб', pricebefore:'2 090 руб', class:'min six'}]
+              each list in listsSwiper
+                div(class= 'sectiontwo__' + list.class).swiper-slide.flex
+                  .sectiontwo__slidersis
+                    .sectiontwo__slidercontainer.flex
+                      span.sectiontwo__discount= list.text
+                      a.sectiontwo__link.link(href="#")
+                        img.imgreset.lazy.sectiontwo__img(data-src="../imgs/" + list.img alt="товар")
+                      p.preset.sectiontwo__text.secondarytitle= list.texttitle
+                      .sectiontwo__pricecontainer.flex
+                        span.sectiontwo__price= list.price
+                        s.sectiontwo__pricebefore= list.pricebefore
+                      button.sectiontwo__btn.btn.halfbtn Купить
+      section.container.sectionthree
+        h1.hreset.sectionthree__title.maintitle Высокий рейтинг
+        - var page = 'index'
+          .sectionthree__containercard
+            include mixin.pug
+            +products
+        a(href="catalog.html").sectionthree__btn.link.btnViolet Смотреть больше товаров
+      section.sectionfoure
+        picture.sectionfoure__img
+          source(srcset=`../imgs/sectionfoure320.webp` media="(max-width: 650px)")
+          source(srcset=`../imgs/sectionfoure768.webp` media="(max-width: 950px)")
+          source(srcset=`../imgs/sectionfoure1024.webp` media="(max-width: 1250px)")
+          source(srcset=`../imgs/sectionfoure.webp` media="(max-width: 1920px)")
+          img.imgreset.sectionfoure__img.lazy(data-src=`../imgs/sectionfoure.webp` alt="фоновое изображение кресел")
+
+        .sectionfoure__subcontainer.container
+          h2.hreset.sectionfoure__title Оксфорд 1950
+          p.preset.sectionfoure__subtitle Новая коллекция изысканных кресел
+          button.sectionfoure__btn.btn.btnViolet Ознакомиться
+        button.sectionfoure__btn2.btn.btnViolet Ознакомиться
+      section.container.sectionfive
+        h1.hreset.sectionfive__title.maintitle Топ категории
+        .sectionfive__maincontainer
+          - var listСategory = [{sublinkone:'Прямые',sublinktwo:'Угловые', sublinkthree:'Модульные', subtitle:'Диваны', img:'1', class:'one', lincCatalog:'В каталог'}, {sublinkone:'Мягкие', sublinktwo:'Кресла-кровати', subtitle:'Кресла', img:'2', class:'two', lincCatalog:'В каталог'},{sublinkone:'Односпальные', sublinktwo:'Двуспальные', subtitle:'Кровати', img:'3', class:'three', lincCatalog:'В каталог'},{sublinkone:'Тумбы', sublinktwo:'Комоды', subtitle:`Тумбы и комоды`, img:'4', class:'four', lincCatalog:'В каталог'},{sublinkone:'Деревянные', sublinktwo:'Металлокаркас', subtitle:'Стулья', img:'5', class:'five', lincCatalog:'В каталог'}]
+            each list in listСategory
+              .sectionfive__container.flex(class="" + list.class)
+                ul.sectionfive__list.listreset.flex
+                  li.sectionfive__item
+                    a.sectionfive__sublink.link(href="#")= list.sublinkone
+                  li.sectionfive__item
+                    a.sectionfive__sublink.link(href="#")= list.sublinktwo
+                  if list.sublinkthree
+                    li.sectionfive__item
+                      a.sectionfive__sublink.link(href="#")= list.sublinkthree
+                h2.hreset.sectionfive__subtitle.secondarytitle= list.subtitle
+                  a.sectionfive__linccatalog.sectionfive__linccatalog3202.none.link(href="#")= list.lincCatalog
+                picture.sectionfive__img
+                  source(srcset=`../imgs/sectionfive${list.img}320.webp` media="(max-width: 650px)")
+                  source(srcset=`../imgs/sectionfive${list.img}768.webp` media="(max-width: 950px)")
+                  source(srcset=`../imgs/sectionfive${list.img}1024.webp` media="(max-width: 1250px)")
+                  source(srcset=`../imgs/sectionfive${list.img}.webp` media="(max-width: 1920px)")
+                  img.imgreset.lazy.sectionfive__imgs(data-src=`../imgs/sectionfive${list.img}.webp` alt="фоновое изображение кресел")
+                a.sectionfive__linccatalog.sectionfive__linccatalog320.link(href="#")= list.lincCatalog
+      section.container.sectionsix
+                h1.hreset.sectionsix__title.maintitle Полезное
+                .btnscontain
+                    include mixin.pug
+                    +btns
+                .swiper.mySwiper3
+                    .swiper-wrapper
+                        - var listsSwipersix = [{img:'sectionsix1.webp', text:'И нет сомнений, что сделанные на базе интернет-аналитики выводы представляют собой не что иное?'}, {img:'sectionsix2.webp', text:'Как принято считать, некоторые особенности приносят несомненную пользу обществу?'}, {img:'sectionsix3.webp', text:'Ясность нашей позиции очевидна: укрепление и развитие внутренней структуры?'}, {img:'sectionsix4.webp', text:'Прежде всего, консультация с широким активом однозначно фиксирует необходимость распределения?'}, {img:'sectionsix5.webp', text:'Как принято считать, некоторые особенности приносят несомненную пользу обществу?'}]
+                            each listsix in listsSwipersix
+                                .swiper-slide.sectionsix__slider3
+                                    .sectionsix__slidersis
+                                        .sectionsix__slidercontainer
+                                            img.imgreset.lazy.sectionsix__img(data-src="../imgs/" + listsix.img alt="товар")
+                                            .sectionsix__slidercontainerbottom
+                                                p.preset.sectionsix__text= listsix.text
+                                                button.sectionsix__btn.btn.halfbtn Читать
+      section.container.sectionseven
+          .sectionseven__subcontainer.flex
+              .sectionseven__containerleft
+                  h1.hreset.sectionseven__title.maintitle Мы всегда вам рады!
+                  p.preset.sectionseven__text Безусловно, новая модель организационной деятельности в значительной степени обусловливает важность распределения внутренних резервов и&nbsp;ресурсов.
+                      span.sectionseven__tooltip#myButton
+                  form.sectionseven__form.flex(action="#" method="post")
+                      label.sectionseven__label(for="fio" aria-label="Как вас зовут")
+                          input.sectionseven__input(type="text" id="fio" name="fio" placeholder="Как вас зовут?" required)
+                      label.sectionseven__label(for="tel" aria-label="Ваш телефон")
+                          input.sectionseven__input(type="tel" id="tel" name="tel" placeholder="Ваш телефон" required)
+                      label.sectionseven__label(for="email" aria-label="Ваш e-mail")
+                          input.sectionseven__input(type="text" id="email" name="email" placeholder="Ваш e-mail" required)
+                      input.sectionseven__btn.btnViolet.checkedonlino.btn(type="submit" value="Отправить")
+                      .sectionseven__checkcontainer
+                          label.sectionseven__label( aria-label="Галочка принять")
+                              input.sectionseven__send(type="checkbox" id="agreement" name="checkboxsis" value="yes" checked required)
+                              span.sectionseven__span
+                          label(for="agreement") Принимаю
+                              a.sectionseven__agreement(href="#")  пользовательское соглашение
+              .sectionseven__containerright
+                  picture.sectionseven__img
+                      source(srcset=`../imgs/sevenimg768.webp` media="(max-width: 950px)")
+                      source(srcset=`../imgs/sectionseven.webp` media="(max-width: 1920px)")
+                      img.sectionseven__imgs.imgreset.lazy(data-src=`../imgs/sectionseven.webp` alt="графическое изображение")
+    include mixin.pug
+    +footer
+    +baseFooter
+    script(defer src="app.js")

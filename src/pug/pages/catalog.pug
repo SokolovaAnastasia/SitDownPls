@@ -1,0 +1,96 @@
+doctype html
+html(lang="ru")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible" content="IE=edge")
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+        title SitDownPlsCatalog
+        include mixin.pug
+        +baseHead
+    body.body
+        include mixin.pug
+        - var pageheader = 'catalog'
+        +header(pageheader)
+        main
+            .container.flex.catalog
+                .catalogleft
+                    h2.hreset.catalogleft__title Фильтровать по:
+                    .catalogleft__category
+                        h3.hreset.catalogleft__categorytitle Категория
+                        include mixin.pug
+                        - var categoryList = [{name:'Диваны', id:'sofa'}, {name:'Кресла', id:'armchair'}, {name:'Пуфы', id:'pouf'}, {name:'Кровати', id:'bed'}, {name:'Тумбы', id:'pedestal'}, {name:'Комоды', id:'dresser'}, {name:'Стулья', id:'chair'}, {name:'Столы', id:'table'}, {name:'Аксессуары', id:'accessories'}]
+                        - var ids = 'categorynone'
+                        +checkbox(categoryList, ids)
+                    .catalogleft__price
+                        .catalogleft__switch
+                            label.catalogleft__pricetitle(for='amount') Цена
+                                .catalogleft__pricemaincontainer.flex
+                                    .catalogleft__pricecontain
+                                        span.catalogleft__before от
+                                        input.catalogleft__switchinput#amount(type='number' aria-label="поле для ввода суммы")
+                                    .catalogleft__pricecontain
+                                        span.catalogleft__after до
+                                        input.catalogleft__switchinput#amount2(type='number' aria-label="поле для ввода суммы")
+                        #slider-range
+                    .catalogleft__discount
+                        h3.hreset.catalogleft__discounttitle Скидка
+                        include mixin.pug
+                        - var categoryList = [{name:'Более 5 000', id:'more'}, {name:'Менее 5 000', id:'less'}, {name:'Не важно', id: 'doesntmatter'}]
+                        -var ids = 'discountnone'
+                        +checkbox(categoryList, ids)
+                    .catalogleft__color
+                        h3.hreset.catalogleft__colortitle Цвет
+                        include mixin.pug
+                        - var categoryList = [{name:'Коричневый', id:'brown'}, {name:'Черный', id:'black'}, {name:'Бежевый', id:'beige'}, {name:'Серый', id:'grey'}, {name:'Белый', id:'white'}, {name:'Синий', id:'blue'}, {name:'Оранжевый', id:'orange'}, {name:'Желтый', id:'yellow'}, {name:'Зеленый', id:'green'}]
+                        -var ids = 'colornone'
+                        +checkbox(categoryList, ids)
+                    .catalogleft__newcollection
+                        .catalogleft__newcollectioncontainer
+                            img.imgreset.lazy.catalogleft__newcollectionbottom(data-src="../imgs/newcollection.webp" alt="новая коллекция")
+                            .catalogleft__newcollectioncont.flex
+                                p.preset.catalogleft__newcollectiontitle Оксфорд 1950
+                                span.catalogleft__newcollectiontext Новая коллекция изысканных кресел
+                                a.catalogleft__newcollectionlink.link(href="#") В каталог
+                .catalogright
+                    h1.hreset.catalogright__title Каталог
+                    ul.catalogright__allfilter.listreset
+                    .catalogleft1024.catalogleft
+                        h2.hreset.catalogleft__title Фильтры:
+                        .catalogleft__containerfiltr.flex
+                            button.catalogleft1024__btn.btn#categorys Категория
+                            include mixin.pug
+                            -var categoryList = [{name:'Диваны', id:'sofa1024'}, {name:'Кресла', id:'armchair1024'}, {name:'Пуфы', id:'pouf1024'}, {name:'Кровати', id:'bed1024'}, {name:'Тумбы', id:'pedestal1024'}, {name:'Комоды', id:'dresser1024'}, {name:'Стулья', id:'chair1024'}, {name:'Столы', id:'table1024'}, {name:'Аксессуары', id:'accessories1024'}]
+                            -var ids = 'category'
+                            +checkbox(categoryList, ids)
+                        .catalogleft__containerfiltr.flex
+                            button.catalogleft1024__btn.btn#prices Цена
+                            .catalogleft__pricemaincontainer.flex#price
+                                .catalogleft__pricecontain
+                                    span.catalogleft__before от
+                                    input.catalogleft__switchinput#amount1024(type='number' aria-label="поле для ввода суммы")
+                                .catalogleft__pricecontain
+                                    span.catalogleft__after до
+                                    input.catalogleft__switchinput#amount21024(type='number' aria-label="поле для ввода суммы")
+                        .catalogleft__containerfiltr.flex
+                            button.catalogleft1024__btn.btn#discounts Скидка
+                            include mixin.pug
+                            - var categoryList = [{name:'Более 5 000', id:'more1024'}, {name:'Менее 5 000', id:'less1024'}, {name:'Не важно', id: 'doesntmatter1024'}]
+                            - var ids = 'discount'
+                            +checkbox(categoryList, ids)
+                        .catalogleft__containerfiltr.catalogleft__containerfiltrcolors.flex
+                            button.catalogleft1024__btn.btn#colors Цвет
+                            include mixin.pug
+                            - var categoryList = [{name:'Коричневый', id:'brown1024'}, {name:'Черный', id:'black1024'}, {name:'Бежевый', id:'beige1024'}, {name:'Серый', id:'grey1024'}, {name:'Белый', id:'white1024'}, {name:'Синий', id:'blue1024'}, {name:'Оранжевый', id:'orange1024'}, {name:'Желтый', id:'yellow1024'}, {name:'Зеленый', id:'green1024'}]
+                            - var ids = 'color'
+                            +checkbox(categoryList, ids)
+
+                    .swiper.mySwiper6.catalogright__swiper
+                        .swiper-wrapper
+                            include mixin.pug
+                            - var page = 'calalog'
+                            +products
+                        .swiper-pagination
+        include mixin.pug
+        +footer
+        +baseFooter
+        script(defer src="app.js")

@@ -1,0 +1,265 @@
+@import "_variables.scss";
+
+@mixin posAbsolute {
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: "";
+}
+
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+.body {
+  margin: 0 auto;
+  font-weight: 400;
+  overflow: visible;
+}
+
+.body {
+  position: relative;
+  height: 100%;
+}
+.imgreset {
+  max-width: 100%;
+}
+
+
+* {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  font-family: "Open Sans";
+}
+
+.container {
+  padding: 0 calc(40% - 450px);
+  padding-bottom: 70px;
+  max-width: 1920px;
+  margin: 0 auto;
+  position: relative;
+}
+.btn {
+  background-color: inherit;
+  border: none;
+  padding: 0;
+  width: 100%;
+  cursor: pointer;
+}
+.listreset {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+.hreset,
+.preset,
+.body {
+  margin: 0;
+  padding: 0;
+}
+.link {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.flex {
+  display: flex;
+}
+
+.btnViolet {
+  background-color: $colorViolet;
+  padding: 22px 47px 22px 47px;
+  border-radius: 10px;
+  color: $colorWhite;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 16px;
+  letter-spacing: 1px;
+  transition: all 0.3s;
+  &:hover {
+    background-color: $colorViolet2;
+    outline: 2px solid $colorViolet2;
+  }
+  &:focus-visible {
+    outline: 2px solid $colorViolet3;
+    outline-offset: -2px;
+    background-color: $colorViolet2;
+  }
+  &:active {
+    background-color: $colorViolet3;
+    outline: 2px solid $colorViolet3;
+  }
+  &:disabled {
+    color: $colorDarkGrey;
+    background-color: $color3Grey;
+  }
+}
+
+@mixin effectsbtn {
+  &:hover {
+    background-color: $colorViolet;
+    border: 2px solid $colorViolet;
+    color: $colorWhite;
+  }
+
+  &:focus-visible {
+    background-color: $colorViolet2;
+    outline: none;
+    border: 2px solid $colorViolet;
+    color: $colorWhite;
+  }
+  &:active {
+    background-color: $colorViolet3;
+    border: 2px solid $colorViolet3;
+  }
+}
+.halfbtn {
+  padding: 18px;
+  border: 2px solid $colorViolet;
+  border-radius: 10px;
+  color: $colorViolet;
+  transition: all 0.3s;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 16px;
+  @include effectsbtn;
+}
+
+.maintitle {
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 32px;
+  margin-bottom: 28px;
+}
+.star {
+  position: relative;
+  color: $colorOrange;
+  &::after {
+    @include posAbsolute;
+    background-image: url("../imgs/star.webp");
+    background-repeat: no-repeat;
+    width: 15px;
+    height: 15px;
+    left: 30px;
+  }
+}
+.secondarytitle {
+  font-size: 24px;
+  line-height: 31px;
+  margin-bottom: 20px;
+  font-weight: 400;
+}
+@mixin btnnextprev {
+  left: 0;
+  right: 0;
+  top: -36px;
+  width: 32px;
+  height: 32px;
+}
+@mixin swipBtns {
+  .swiper-button-next {
+    @include btnnextprev;
+    left: inherit;
+  }
+  .swiper-button-prev {
+    @include btnnextprev;
+    left: auto;
+    right: 4%;
+  }
+}
+
+
+@mixin modalContainer {
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+@mixin modalSubContainer {
+  max-width: 67%;
+  width: 100%;
+  flex-direction: column;
+  display: flex;
+  background-color: $colorWhite;
+  justify-content: space-between;
+  border-radius: 10px;
+  color: #000;
+  overflow: auto;
+  height: 73vh;
+  position: relative;
+}
+@mixin modalActive {
+  display: block;
+  opacity: 1;
+  transform: none;
+}
+@mixin modalClose {
+  background-image: url("../imgs/Property 1=Default.webp");
+  background-repeat: no-repeat;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  z-index: 100;
+  right: 15px;
+  background-size: 70%;
+  top: 20px;
+  transition: all 0.3s;
+  &:hover {
+    background-image: url("../imgs/Property 1=hover.webp");
+  }
+  &:focus-visible {
+    outline: none;
+    background-image: url("../imgs/Property 1=focus.webp");
+  }
+  &:active {
+    background-image: url("../imgs/Property 1=active.webp");
+  }
+}
+@mixin modal {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  display: none;
+  opacity: 0;
+  transform: translateY(-300px);
+  transition-property: opacity, transform;
+  transition-duration: 0.7s;
+  transition-timing-function: ease-in-out;
+}
+@mixin stateBtnBottomHeader {
+  cursor: pointer;
+  svg path {
+    transition: all 0.3s;
+  }
+
+  &:hover svg path {
+    fill: $colorViolet2;
+  }
+  &:focus-visible {
+    outline: none;
+  }
+  &:focus-visible svg path {
+    fill: $colorWhite;
+  }
+  &:focus-visible svg {
+    padding: 2px;
+    background-color: $colorViolet2;
+  }
+  &:active svg path {
+    fill: $colorViolet3;
+  }
+}
+@mixin focuss {
+  &:focus-visible {
+    outline: none;
+    opacity: 0.5;
+  }
+}
