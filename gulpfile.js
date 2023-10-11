@@ -19,7 +19,7 @@ const gulpSass = require('gulp-sass')(require('sass'));
 var gulp = require('gulp');
 var ghPages = require('gulp-gh-pages');
 gulp.task('deploy', function() {
-  return gui('./dist/**/*')
+  return gulp('./dist/**/*')
     .pipe(ghPages());
 });
 
