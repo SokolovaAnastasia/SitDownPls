@@ -32,7 +32,7 @@ html(lang="ru")
                     .sectiontwo__slidercontainer.flex
                       span.sectiontwo__discount= list.text
                       a.sectiontwo__link.link(href="#")
-                        img.imgreset.lazy.sectiontwo__img(data-src="../imgs/" + list.img alt="товар")
+                        img.imgreset.lazy.sectiontwo__img(data-src="../imgs/" + list.img alt="товар" src="../background.jpg")
                       p.preset.sectiontwo__text.secondarytitle= list.texttitle
                       .sectiontwo__pricecontainer.flex
                         span.sectiontwo__price= list.price
@@ -51,7 +51,7 @@ html(lang="ru")
           source(srcset=`../imgs/sectionfoure768.webp` media="(max-width: 950px)")
           source(srcset=`../imgs/sectionfoure1024.webp` media="(max-width: 1250px)")
           source(srcset=`../imgs/sectionfoure.webp` media="(max-width: 1920px)")
-          img.imgreset.sectionfoure__img.lazy(data-src=`../imgs/sectionfoure.webp` alt="фоновое изображение кресел")
+          img.imgreset.sectionfoure__img.lazy(data-src=`../imgs/sectionfoure.webp` alt="фоновое изображение кресел" src="../background.jpg")
 
         .sectionfoure__subcontainer.container
           h2.hreset.sectionfoure__title Оксфорд 1950
@@ -79,7 +79,7 @@ html(lang="ru")
                   source(srcset=`../imgs/sectionfive${list.img}768.webp` media="(max-width: 950px)")
                   source(srcset=`../imgs/sectionfive${list.img}1024.webp` media="(max-width: 1250px)")
                   source(srcset=`../imgs/sectionfive${list.img}.webp` media="(max-width: 1920px)")
-                  img.imgreset.lazy.sectionfive__imgs(data-src=`../imgs/sectionfive${list.img}.webp` alt="фоновое изображение кресел")
+                  img.imgreset.lazy.sectionfive__imgs(data-src=`../imgs/sectionfive${list.img}.webp` alt="фоновое изображение кресел" src="../background.jpg")
                 a.sectionfive__linccatalog.sectionfive__linccatalog320.link(href="#")= list.lincCatalog
       section.container.sectionsix
                 h1.hreset.sectionsix__title.maintitle Полезное
@@ -93,7 +93,7 @@ html(lang="ru")
                                 .swiper-slide.sectionsix__slider3
                                     .sectionsix__slidersis
                                         .sectionsix__slidercontainer
-                                            img.imgreset.lazy.sectionsix__img(data-src="../imgs/" + listsix.img alt="товар")
+                                            img.imgreset.lazy.sectionsix__img(data-src="../imgs/" + listsix.img alt="товар" src="../background.jpg")
                                             .sectionsix__slidercontainerbottom
                                                 p.preset.sectionsix__text= listsix.text
                                                 button.sectionsix__btn.btn.halfbtn Читать
@@ -121,7 +121,7 @@ html(lang="ru")
                   picture.sectionseven__img
                       source(srcset=`../imgs/sevenimg768.webp` media="(max-width: 950px)")
                       source(srcset=`../imgs/sectionseven.webp` media="(max-width: 1920px)")
-                      img.sectionseven__imgs.imgreset.lazy(data-src=`../imgs/sectionseven.webp` alt="графическое изображение")
+                      img.sectionseven__imgs.imgreset.lazy(data-src=`../imgs/sectionseven.webp` alt="графическое изображение" src="../background.jpg")
     include mixin.pug
     +footer
     +baseFooter

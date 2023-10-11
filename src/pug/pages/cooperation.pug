@@ -22,7 +22,7 @@ html(lang="ru")
                     - var listCooperationSectiontwo = [{img:'../imgs/cooperation1.webp', text:'Мы ценим идеи и вдохновение и предлагаем сотрудничество талантливым дизайнерам и архитекторам. Выпускаемая нами продукция гармонично дополнит любой современный проект.'},{img:'../imgs/cooperation2.webp', text:'Комплексное решение для красивого и функционального обустройства любых пространств. '},{img:'../imgs/cooperation3.webp', text:'В ассортименте представлены все товарные группы для того, чтобы воссоздать обстановку в помещениях разных типов: кабинетах, смешанных пространствах, Open Space, гостевых и переговорных комнатах.'}]
                         each list in listCooperationSectiontwo
                             li.cooperation__sectiontwoitem.flex
-                                img.imgreset.cooperation__sectiontwoitemimg.lazy(data-src="" + list.img alt="иконка что вы получаете")
+                                img.imgreset.cooperation__sectiontwoitemimg.lazy(data-src="" + list.img alt="иконка что вы получаете" src="../background.jpg")
                                 p.cooperation__sectiontwotext.cooptext= list.text
             section.cooperation__sectionthree.container
                 h2.hreset.cooperation__sectionthreesubtitle.cooperation__subtitle Ваши преимущества от сотрудничества
@@ -42,7 +42,7 @@ html(lang="ru")
                                 p.preset.cooperation__sectionfourtext.cooptext= list.text
             section.cooperation__sectionfive.container
                 .cooperation__sectionfivecontainer.flex
-                    img.imgreset.lazy.cooperation__sectionfiveimg(data-src="../imgs/cooperation4.webp", alt="изображение карандаша")
+                    img.imgreset.lazy.cooperation__sectionfiveimg(data-src="../imgs/cooperation4.webp", alt="изображение карандаша" src="../background.jpg")
                     p.preset.cooperation__sectionfivetext Срок гарантии на нашу мебель составляет от 18 до 60 месяцев
         include mixin.pug
         +footer

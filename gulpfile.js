@@ -14,16 +14,17 @@ const font = require('gulp-font')
 const browserSync = require('browser-sync').create()
 const gulpPug = require('gulp-pug')
 const gulpSass = require('gulp-sass')(require('sass'));
-//
+
+
 
 var gulp = require('gulp');
 var ghPages = require('gulp-gh-pages');
 gulp.task('deploy', function() {
-  return gulp('./dist/**/*')
+  return gulp.src('./dist/**/*')
     .pipe(ghPages());
 });
 
-//
+
 const clean = () => {
   return del(['dist'])
 }
@@ -42,6 +43,7 @@ const styles = () => {
   .pipe(dest('dist'))
   .pipe(browserSync.stream())
 }
+
 const stylesbuild = () => {
   return src('src/styles/**/*.css')
   .pipe(concat('main.css'))
@@ -54,6 +56,8 @@ const stylesbuild = () => {
   .pipe(dest('dist'))
   .pipe(browserSync.stream())
 }
+
+
 const htmlMinify = () => {
   return src('src/**/*.html')
   .pipe(htmlMin ({
@@ -62,8 +66,9 @@ const htmlMinify = () => {
 .pipe(dest('dist'))
 .pipe(browserSync.stream())
 }
+
 const svgSprites = () => {
-  return src('src/images/svg/**/*.svg')
+  return src('src/imags/svg/**/*.svg')
   .pipe(svgSprite({
     mode: {
       stack: {
@@ -72,8 +77,9 @@ const svgSprites = () => {
     }
   }))
 
-  .pipe(dest('dist/images'))
+  .pipe(dest('dist/imags'))
 }
+
 const scripts = () => {
   return src([
     'src/js/components/**/*.js',
@@ -91,6 +97,7 @@ const scripts = () => {
   .pipe(dest('dist'))
   .pipe(browserSync.stream())
 }
+
 const scriptsbuild = () => {
   return src([
     'src/js/components/**/*.js',
@@ -106,6 +113,7 @@ const scriptsbuild = () => {
   .pipe(dest('dist'))
   .pipe(browserSync.stream())
 }
+
 const resources = () => {
   return src('src/resources/**')
   .pipe(dest('dist'))
@@ -117,15 +125,17 @@ const watchFiles = () => {
     }
   })
 }
+
 const images = () => {
   return src([
-    'src/images/**/*.jpg',
-    'src/images/**/*.png',
-    'src/images/*.svg',
-    'src/images/**/*.jpeg',
+    'src/imgs/**/*.jpg',
+    'src/imgs/**/*.png',
+    'src/imgs/*.svg',
+    'src/imgs/**/*.jpeg',
+    'src/imgs/**/*.webp',
   ])
   .pipe(image())
-  .pipe(dest('dist/images'))
+  .pipe(dest('dist/imgs'))
 }
 
 const fonts = () => {
@@ -141,6 +151,7 @@ const pug2html = () => {
   'src/pug/pages/*.pug')
  .pipe(gulpPug())
  .pipe(dest('dist'))
+ .pipe(dest('src'))
 }
 const sass2css = () => {
   return src('src/styles/**/*.scss')
@@ -148,11 +159,13 @@ const sass2css = () => {
   .pipe(dest('dist/styles'))
  }
 //
+
+
 watch('src/styles/**/*.scss', sass2css)
 watch('src/pug/pages**/*.pug', pug2html)
 watch('src/**/*.html', htmlMinify)
 watch('src/styles/**/*.css', styles)
-watch('src/images/svg/**/*.svg', svgSprites)
+watch('src/imags/svg/**/*.svg', svgSprites)
 watch('src/js/**/*.js', scripts)
 watch('src/resources/**', resources)
 

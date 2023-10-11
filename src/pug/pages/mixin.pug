@@ -17,7 +17,7 @@ mixin sectionOneSlider
                     source(srcset=`../imgs/slider${list.img}(768).webp` media="(max-width: 950px)")
                     source(srcset=`../imgs/slider${list.img}(1024).webp` media="(max-width: 1250px)")
                     source(srcset=`../imgs/slider${list.img}.webp` media="(max-width: 1920px)")
-                    img.imgreset.lazy.sectionone__imgs(data-src=`../imgs/slider${list.img}.webp` alt="слайдер")
+                    img.imgreset.lazy.sectionone__imgs(data-src=`../imgs/slider${list.img}.webp` alt="слайдер" src="../background.jpg")
         .swiper-slide.sectionone__slider
             .sectionone__cont.sectionone__contcap
                 .sectionone__containscap.flex
@@ -45,7 +45,7 @@ mixin product(nameclass, list)
     div(class="" + `${nameclass}__container`).flex
         span(class="" + `${nameclass}__grade`).star= list.span
         a(class="" + `${nameclass}__link link` href="card.html")
-            img.imgreset.lazy(class="" + `${nameclass}__img` data-src="../imgs/" + list.img, alt="товары с высоким рейтингом")
+            img.imgreset.lazy(class="" + `${nameclass}__img` data-src="../imgs/" + list.img, alt="товары с высоким рейтингом" src="../background.jpg")
         div(class="" + `${nameclass}__contain`)
             h3.hreset(class="" + `${nameclass}__subtitle`).secondarytitle= list.title
             p.preset.secondarytitle=list.subtitle
@@ -56,7 +56,7 @@ mixin swiperCard
         - var swipimg = [{number:'2'}, {number:'1'}, {number:'3'}, {number:'4'}, {number:'5'}]
             each list in swipimg
                 .swiper-slide
-                    img.imgreset.swiper-slide-img.lazy(data-src=`../imgs/cardLeftImgs${list.number}.svg` alt="изображение товара")
+                    img.imgreset.swiper-slide-img.lazy(data-src=`../imgs/cardLeftImgs${list.number}.svg` alt="изображение товара" src="../background.jpg")
 - var navheaderList = []
 mixin breadCrumbs(navheaderList)
     .bottomheaderbasketnav
@@ -84,7 +84,7 @@ mixin footer
                         source(srcset="../imgs/logo768.webp" media="(max-width: 950px)")
                         source(srcset="../imgs/logo1024.webp" media="(max-width: 1250px)")
                         source(srcset="../imgs/logo.webp" media="(max-width: 1920px)")
-                        img.footer__imglogo.imgreset.lazy(data-src="../imgs/logo.webp" alt="логотип")
+                        img.footer__imglogo.imgreset.lazy(data-src="../imgs/logo.webp" alt="логотип" src="../background.jpg")
                 ul.footer__social.flex.listreset
                     li.footer__sociallist
                         a.footer__sociallistlink(href="#" aria-label="Ссылка на социальную сеть в фейсбук")
@@ -155,7 +155,7 @@ mixin header(pageheader)
                     source(srcset="../imgs/logo768.webp" media="(max-width: 950px)")
                     source(srcset="../imgs/logo1024.webp" media="(max-width: 1250px)")
                     source(srcset="../imgs/logo.webp" media="(max-width: 1920px)")
-                    img.imgreset.lazy(data-src="../imgs/logo.webp" alt="логотип")
+                    img.imgreset.lazy(data-src="../imgs/logo.webp" alt="логотип" src="../background.jpg")
             nav.middleheader__navigation
                 +burger
                 .middleheader__navigationimg
@@ -217,7 +217,7 @@ mixin thankyou
         .thankyou__container.flex
             .thankyou__subcontainer
                 button.thankyou__btn.btn(aria-label="закрыть модальное окно")
-                img.imgreset.lazy.thankyou__img(data-src="../imgs/elephant.webp" alt="thankyou")
+                img.imgreset.lazy.thankyou__img(data-src="../imgs/elephant.webp" alt="thankyou" src="../background.jpg")
                 p.preset.thankyou__text Спасибо, мы вам перезвоним!
 mixin products
     - var oneProducts = {span:'5,0', img:'sectionthree1.webp', title:'Диван кожаный', subtitle: '“R-94”', price:'94 990 руб', btn:'Купить', id:'R-94'}
@@ -267,7 +267,7 @@ mixin baseHead
     link(rel="preload" href="fonts/opensans-semibold-webfont.woff2" as="font")
     link(rel="preload" href="fonts/playfairdisplaysc-black-webfont.woff" as="font")
     link(rel="preload" href="fonts/playfairdisplaysc-black-webfont.woff2" as="font")
-    link(type="Image/x-icon" href="imgs/favicon.webp" rel="icon")
+    link(type="Image/x-icon" href="../imgs/elephant.webp" rel="icon")
     link(rel='stylesheet', href='https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css')
     link(rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css")
     link(rel='stylesheet' href='https://unpkg.com/tippy.js@5/dist/backdrop.css')
